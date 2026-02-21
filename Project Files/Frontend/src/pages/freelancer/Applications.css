@@ -1,0 +1,172 @@
+.status {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.status.pending {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+.status.pending:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3);
+}
+
+.status.accepted {
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);
+}
+
+.status.accepted:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3);
+}
+
+.status.rejected {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.status.rejected:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.3);
+}
+
+/* Additional status variations that might be useful */
+.status.in-progress {
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  color: white;
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+}
+
+.status.completed {
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  color: white;
+  opacity: 0.8;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
+}
+
+.status.reviewing {
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  color: white;
+  opacity: 0.85;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.12);
+}
+
+/* Card Styles - Updated to match teal theme */
+.card {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.12);
+  border-color: #0d9488;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0d9488, #0891b2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card with left accent variation */
+.card.left-accent {
+  border-left: 4px solid transparent;
+}
+
+.card.left-accent:hover {
+  border-left-color: #0d9488;
+}
+
+/* Card with status-based left accent */
+.card.left-accent.status-pending {
+  border-left-color: #f59e0b;
+}
+
+.card.left-accent.status-accepted {
+  border-left-color: #0d9488;
+}
+
+.card.left-accent.status-rejected {
+  border-left-color: #dc2626;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: #1f2937;
+    border-color: #374151;
+  }
+  
+  .card:hover {
+    border-color: #2dd4bf;
+  }
+  
+  .status {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .status.accepted,
+  .status.in-progress,
+  .status.completed,
+  .status.reviewing {
+    background: linear-gradient(135deg, #2dd4bf, #0891b2);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .status {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  
+  .card {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+  
+  .card {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+}
